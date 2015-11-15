@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
 
-    <title>Technify</title>
+    <title>Flag Filter</title>
 
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
 
@@ -11,10 +11,10 @@
 
     <style>
       body {
-        background-color: rgba(0, 255, 255, .2);
+        background-color: black;
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         line-height:1.5em;
-        color: #232323;
+        color: white;
         -webkit-font-smoothing: antialiased;
         text-align: center;
       }
@@ -45,15 +45,39 @@
   <body>
 
     <div class="container">
-      <h1>Technify</h1>
-      <h3>Upload an image to technify it! Make sure its a JPG, JPEG, or PNG!</h3>
-      <p>Make sure to check out the <a href="http://gotechnica.org/">Technica</a> hackathon!</p>
+      <h1>Flag Filter</h1>
+      <h3>Upload an image to filter  it! Make sure its a JPG, JPEG, or PNG!</h3>
+      <p>Thanks to <a href="http://gotechnica.org/">Technica</a> hackathon for
+      writing the <a herf="https://github.com/AlexEKoren/Technify">code</a> this app is based off of.</p>
       <form id="formupload" class="form-inline" role="form" action="technify" method="post" enctype="multipart/form-data">
         <div class="form-group">
           <label for="imagefile">Choose an image</label>
           <input type="file" name="imagefile" id="imagefile">
         </div>
-        <input type="submit" class="btn btn-primary" value="Technify!" id="technify"></input>
+        <p>
+        <div class="radio form-group">
+            <label for="imagefile">Choose an flag filter</label>
+
+        <label>
+            <input type="radio" name="flag" id="optionsRadios1" value="lebanon" checked>
+            Lebanon
+        </label>
+        </div>
+        <div class="radio">
+        <label>
+            <input type="radio" name="flag" id="optionsRadios2" value="iraq">
+            Iraq
+        </label>
+        </div>
+        <div class="radio">
+        <label>
+            <input type="radio" name="flag" id="optionsRadios3"
+            value="syria">
+            Syria
+        </label>
+        </div>
+        <p>
+        <input type="submit" class="btn btn-primary" value="Filter!" id="technify"></input>
       </form>
     </div>
 
