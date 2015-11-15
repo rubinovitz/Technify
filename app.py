@@ -10,16 +10,16 @@ app = Flask(__name__)
 
 ALLOWED_IMAGE_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 
-def process_image(img):
+def process_image(img, flag):
   #open up the mask
   #mask = Image.open('mask.png')
-  mask = Image.open('mask-2.png');
+  mask = Image.open(flag+'.png');
   mask = mask.convert('RGBA')
   #make sure it matches the size of the image
   mask = mask.resize(img.size)
   #enhance it by raising its saturation
   converter = ImageEnhance.Color(mask)
-  mask = converter.enhance(1)
+  mask = converter.enhance(.8)
   #get mutable data
   mdata = mask.getdata()
 
@@ -62,10 +62,14 @@ def process_image(img):
 def index():
     return render_template('index.html')
 
-@app.route('/technify', methods=['POST'])
+@app.route('/flagify', methods=['POST'])
 def classify_upload():
   try:
     #get the image from the request
+    flag = request.form.get('flag')
+    flags = ['syria', 'iraq', 'lebanon']
+    if not flag or flag not in flags:
+        return 'valid Flag type is required.'
     imagefile = request.files['imagefile']
     filename_ = str(datetime.datetime.now()).replace(' ', '_') + \
             werkzeug.secure_filename(imagefile.filename)
@@ -89,7 +93,7 @@ def classify_upload():
     return 'Error: ' + err
 
   #process the image
-  resultFilename = process_image(image)
+  resultFilename = process_image(image,flag)
   #send it back
   return send_file(resultFilename)
 
