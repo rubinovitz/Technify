@@ -19,7 +19,11 @@ def process_image(img, flag):
   mask = mask.resize(img.size)
   #enhance it by raising its saturation
   converter = ImageEnhance.Color(mask)
-  mask = converter.enhance(.8)
+  if flag != 'kenya':
+    mask = converter.enhance(.8)
+  else:
+    mask = converter.enhance(.35)
+
   #get mutable data
   mdata = mask.getdata()
 
