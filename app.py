@@ -8,7 +8,7 @@ import uuid
 
 app = Flask(__name__)
 
-ALLOWED_IMAGE_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
+ALLOWED_IMAGE_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'JPG', 'JPEG', 'PNG'])
 
 def process_image(img, flag):
   #open up the mask
