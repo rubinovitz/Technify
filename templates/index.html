@@ -16,7 +16,6 @@
         line-height:1.5em;
         color: white;
         -webkit-font-smoothing: antialiased;
-        text-align: center;
       }
 
       h1, h2, h3 {
@@ -35,8 +34,12 @@
       }
 
       a {
-        color: #ffb1dc;
         font-size: 1.1em;
+        color: green;
+      }
+
+      .center{
+          text-align:center;
       }
 
     </style>
@@ -46,7 +49,10 @@
 
     <div class="container">
       <h1>Flag Filter</h1>
-      <h3>Upload an image to filter  it! Make sure its a JPG, JPEG, or PNG!</h3>
+      <h3>Upload an image to filter it! Make sure its a JPG, JPEG, or PNG!</h3>
+      <br>
+      <p>For those wanting image filters for some <a href="http://www.nytimes.com/2015/11/16/world/middleeast/beirut-lebanon-attacks-paris.html">other</a> countries who have been affected by recent terrorism.</p>
+
       <p>Thanks to the <a href="http://gotechnica.org/" target="_blank">Technica</a> hackathon for
       writing the <a href="https://github.com/AlexEKoren/Technify"
       target="_blank">code</a> this app is based off of.</p>
@@ -78,7 +84,9 @@
         </label>
         </div>
         <p>
-        <input type="submit" class="btn btn-primary" value="Filter!" id="technify"></input>
+        <div class="center">
+            <input type="submit" class="btn btn-primary" value="Filter!" id="technify"></input>
+        </div>
       </form>
     </div>
 
