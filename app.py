@@ -67,9 +67,9 @@ def classify_upload():
   try:
     #get the image from the request
     flag = request.form.get('flag')
-    flags = ['syria', 'iraq', 'lebanon']
+    flags = ['syria', 'iraq', 'lebanon', 'kenya']
     if not flag or flag not in flags:
-        return 'valid Flag type is required.'
+        return 'valid flag type is required.'
     imagefile = request.files['imagefile']
     filename_ = str(datetime.datetime.now()).replace(' ', '_') + \
             werkzeug.secure_filename(imagefile.filename)
