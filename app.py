@@ -12,13 +12,14 @@ ALLOWED_IMAGE_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 
 def process_image(img):
   #open up the mask
-  mask = Image.open('mask.png')
+  #mask = Image.open('mask.png')
+  mask = Image.open('mask-2.png');
   mask = mask.convert('RGBA')
   #make sure it matches the size of the image
   mask = mask.resize(img.size)
   #enhance it by raising its saturation
   converter = ImageEnhance.Color(mask)
-  mask = converter.enhance(2.0)
+  mask = converter.enhance(1)
   #get mutable data
   mdata = mask.getdata()
 
